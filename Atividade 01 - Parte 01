@@ -1,0 +1,87 @@
+# 1 - Cadastro de alunos e notas
+alunos = {}
+
+for i in range(10):
+    nome = input(f"Digite o nome do {i+1}º aluno: ")
+    nota = float(input(f"Digite a nota do aluno {nome}: "))
+    alunos[nome] = nota
+
+media = sum(alunos.values()) / len(alunos)
+print(f"\nMédia da turma: {media:.2f}")
+
+maior_nota = max(alunos.values())
+menor_nota = min(alunos.values())
+
+print("\nMaior nota:")
+for nome, nota in alunos.items():
+    if nota == maior_nota:
+        print(f"{nome} - {nota}")
+
+print("\nMenor nota:")
+for nome, nota in alunos.items():
+    if nota == menor_nota:
+        print(f"{nome} - {nota}")
+
+print("\nAlunos abaixo da média:")
+for nome, nota in alunos.items():
+    if nota < media:
+        print(f"{nome} - {nota}")
+
+print("\nAlunos com nota maior ou igual à média:")
+for nome, nota in alunos.items():
+    if nota >= media:
+        print(f"{nome} - {nota}")
+
+# ----------
+
+# 2 - Verificar se número existe no vetor
+numeros = []
+
+for i in range(10):
+    n = int(input(f"Digite o {i+1}º número: "))
+    numeros.append(n)
+
+novo = int(input("Digite um novo número para verificar: "))
+
+posicoes = [i for i, valor in enumerate(numeros) if valor == novo]
+
+if posicoes:
+    print(f"O número {novo} foi encontrado nas posições: {posicoes}")
+else:
+    print("O número não foi encontrado na lista.")
+
+# ---------
+
+# 3 - Substituir negativos por zero
+numeros = []
+
+for i in range(10):
+    n = int(input(f"Digite o {i+1}º número: "))
+    numeros.append(n)
+
+for i in range(len(numeros)):
+    if numeros[i] < 0:
+        numeros[i] = 0
+
+print("\nLista atualizada:", numeros)
+
+# -----------
+
+# 4 - Simulação da Mega Sena
+sorteados = []
+jogo = []
+
+print("Digite os 6 números sorteados:")
+for i in range(6):
+    sorteados.append(int(input(f"{i+1}º número sorteado: ")))
+
+print("\nDigite os 6 números do seu jogo:")
+for i in range(6):
+    jogo.append(int(input(f"{i+1}º número do jogo: ")))
+
+acertos = set(sorteados) & set(jogo)
+print(f"\nVocê acertou {len(acertos)} número(s): {sorted(acertos)}")
+
+# ------------
+
+
