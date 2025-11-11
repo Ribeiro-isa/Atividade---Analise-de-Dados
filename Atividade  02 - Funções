@@ -1,0 +1,58 @@
+# Funções matemáticas usando apenas soma e subtração
+
+def soma(a, b):
+    return a + b
+
+def subtracao(a, b):
+    return a - b
+
+def multiplicacao(a, b):
+    resultado = 0
+    negativo = False
+
+    # Trata números negativos
+    if b < 0:
+        b = -b
+        negativo = True
+
+    for _ in range(b):
+        resultado = soma(resultado, a)
+
+    if negativo:
+        resultado = -resultado
+    return resultado
+
+def potencia(a, b):
+    if b == 0:
+        return 1
+    resultado = 1
+    for _ in range(b):
+        resultado = multiplicacao(resultado, a)
+    return resultado
+
+# Programa principal
+print("=== Calculadora com Funções Personalizadas ===")
+a = int(input("Digite o primeiro número: "))
+b = int(input("Digite o segundo número: "))
+
+print("\nEscolha a operação:")
+print("1 - Soma")
+print("2 - Subtração")
+print("3 - Multiplicação")
+print("4 - Potência")
+
+op = int(input("Digite o número da operação: "))
+
+if op == 1:
+    print("Resultado:", soma(a, b))
+elif op == 2:
+    print("Resultado:", subtracao(a, b))
+elif op == 3:
+    print("Resultado:", multiplicacao(a, b))
+elif op == 4:
+    print("Resultado:", potencia(a, b))
+else:
+    print("Operação inválida.")
+
+
+# ------------
